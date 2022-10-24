@@ -39,11 +39,11 @@ def crushCandy(candy, k):
         while right.next and right.val  == right.next.val: # explore right
             right = right.next
             count += 1
-
         if count >= k: # perform crush
             left.prev.next = right.next
             if right.next:
                 right.next.prev = left.prev
+                
         candy = right.next
 
     return dummy.next
