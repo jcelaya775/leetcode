@@ -22,4 +22,12 @@ public class Graph {
         Node d = getNode(destination);
         s.adjacent.add(d);
     }
+
+    public boolean hasPathDFS(int source, int destination) {
+        return false;
+    }
+
+    public boolean hasPathDFS() {
+        return false;
+    }
 }

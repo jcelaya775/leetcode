@@ -5,55 +5,64 @@ class Node:
         self.next = next
         
 
-def makeLinkedList(li):
-    if not li:
+def makeLinkedList(arr):
+    if not arr:
         return
 
-    head = Node(li[0])
-    curr = head
-    for i in range(1, len(li) - 1):
-        curr.next = Node(li[i])
-        curr = curr.next
+    prev = None
+    curr = None
+    head = None
+    for i in range(len(arr)):
+        curr = Node(arr[i], prev)
+        if not head:
+            head = curr
+        else:
+            prev.next = curr
+        prev = curr
 
+    curr.next = None
     return head
     
         
-# AAABBCCCBBBBBDD
-# ABBACD
-
 # Crush candy if 2 or more consecutive candies
-def crushCandy(candy):
-    head = dummy.next
-    dummy = head
+def crushCandy(candy, k):
+    dummy = Node(0, None, candy)
+    candy.prev = dummy
 
     while candy:
-        print(candy.val, candy.next.val)
-        start = candy.prev
-        counter = 1
-        while candy and candy.next and candy.val == candy.next.val:
-            candy = candy.next
-            counter += 1
+        left, right = candy, candy
+        count = 1
 
-        if counter >= 2:
-            start.next = candy.next
-        
-    
-    return head
+        while left.prev.val == left.val: # explore left
+            left = left.prev
+            count += 1
+        while right.next and right.val  == right.next.val: # explore right
+            right = right.next
+            count += 1
+
+        if count >= k: # perform crush
+            left.prev.next = right.next
+            if right.next:
+                right.next.prev = left.prev
+        candy = right.next
+
+    return dummy.next
 
 
-def printCandy(candy):
+def printCandyForwards(candy):
     while candy:
         print(candy.val, end = " -> ")
         candy = candy.next
     print("None")
-
+        
 
 def main():
     # Create a linked list (candy)
-    candy = makeLinkedList("ABASFSD")
+    candy = makeLinkedList("BBBAAAAA")
     
-    printCandy(candy)
     # Play candy crush
-    # newCandy = crushCandy(candy)
+    newCandy = crushCandy(candy, 4)
+    printCandyForwards(newCandy)
+
 
 main()

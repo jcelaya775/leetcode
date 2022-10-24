@@ -20,11 +20,13 @@ class Graph:
         n = self.getNode(source)
         s = self.getNode(target)
         visited = set()
-        return hasPathDFS(source, target, visited)
+        return self.hasPathDFS(source, target, visited)
 
     def hasPathDFS(self, source, target, visited):
-        pass
+        if source in visited:
+            return False
 
+        
 def main():
     graph = Graph()
 
