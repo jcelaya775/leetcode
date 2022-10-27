@@ -25,7 +25,6 @@ class Solution:
                 res += maxCnt
 
             dp[i] = [maxLen, maxCnt]
-            print(dp[i])
 
         return res
 
@@ -33,7 +32,6 @@ class Solution:
 def main():
     nums = [5, 10, 5, 4, 7]
     s = Solution()
-    print(s.findNumberOfLIS(nums))
 
 
 main()
