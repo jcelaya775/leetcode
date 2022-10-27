@@ -1,6 +1,7 @@
+# https://leetcode.com/problems/number-of-laser-beams-in-a-bank/
+
 class Solution:
-    # o(n + m) time
-    # O(1) space
+    # O(n + m) Time | O(1) Space
     def numberOfBeams(self, bank: list[str]) -> int:
         prev, count, res = None, 0, 0
 
