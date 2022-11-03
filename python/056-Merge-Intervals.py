@@ -14,7 +14,6 @@ class Solution:
         return res
 
 
-
 def main():
     s = Solution()
     intervals = [[1, 3], [5, 6], [2, 5], [10, 12]]
