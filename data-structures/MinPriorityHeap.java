@@ -67,7 +67,7 @@ public class MinPriorityHeap {
         int index = 0;
         while (hasLeftChild(index)) {
             int smallerChildIndex = getLeftChildIndex(index);
-            if (hasRightChild(index) && rightChild(index) < items[smallerChildIndex]) {
+            if (hasRightChild(index) && rightChild(index) < leftChild(index)) {
             smallerChildIndex = getRightChildIndex(index);
             }
             
