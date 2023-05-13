@@ -11,7 +11,7 @@ def merge_sort_helper(array: List[int], temp: List[int], leftStart: int, rightEn
         return
 
     middle = (leftStart + rightEnd) // 2
-    merge_sort_helper(array, temp, leftStart, middle)  # merge leftPtr half
+    merge_sort_helper(array, temp, leftStart, middle)  # merge left half
     merge_sort_helper(array, temp, middle + 1, rightEnd)  # merge right half
     merge_halves(array, temp, leftStart, rightEnd)
 
