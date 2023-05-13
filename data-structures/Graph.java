@@ -12,7 +12,7 @@ public class Graph {
             this.id = id;
         }
     };
-    
+
     private Node getNode(int id) {
         return nodeLookupMap.get(id);
     }

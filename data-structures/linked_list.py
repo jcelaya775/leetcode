@@ -37,7 +37,7 @@ class LinkedList:
             if prev:
                 prev.next = newNode
             prev = newNode
-    
+
     def printLinkedList(self):
         curr = self.head
         while curr:
@@ -67,6 +67,6 @@ def main():
     curr = head
     while curr:
         curr = curr.next
-    
+
 
 main()

@@ -1,10 +1,11 @@
 from typing import List, Optional
 
+
 class Solution:
     class ListNode:
         def __init__(self, val=None, next=None):
             self.val = val
-            self.next = next 
+            self.next = next
 
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         while len(lists) > 1:
@@ -16,7 +17,6 @@ class Solution:
                 mergedLists.append(self.merge(l1, l2))
             lists = mergedLists
         return lists[0]
-
 
     def merge(self, l1: ListNode, l2: ListNode) -> ListNode:
         dummy = self.ListNode()
@@ -35,7 +35,7 @@ class Solution:
         if l2:
             tail.next = l2
         return dummy.next
-        
+
     def listToNode(self, arr):
         dummy = self.ListNode()
         curr = dummy
@@ -43,7 +43,6 @@ class Solution:
             curr.next = self.ListNode(num)
             curr = curr.next
         return dummy.next
-
 
     def printLinkedList(self, head):
         curr = head

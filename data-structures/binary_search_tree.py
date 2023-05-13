@@ -6,12 +6,12 @@ class Node:
 
     def printNode(self):
         print(f"Value: {self.value}, Prev: {self.left}, Next: {self.right}")
-    
+
 
 class BinaryTree:
     def __init__(self, root=None):
         self.root = root
-    
+
     def binarySearch(self, value):
         curr = self.root
 
@@ -26,15 +26,15 @@ class BinaryTree:
 
         print(f"{value} not found...")
         return None
-    
+
     def recursiveInorderTraversal(self, node):
         if not node:
             return
-        
+
         self.recursiveInorderTraversal(node.left)
         print(node.value, end=" ")
         self.recursiveInorderTraversal(node.right)
-    
+
     def iterativeInorderTraversal(self):
         node = self.root
         stack = []
@@ -47,9 +47,9 @@ class BinaryTree:
                 node = stack.pop()
                 print(node.value, end=" ")
                 node = node.right
-            else: # no nodes left
+            else:  # no nodes left
                 break
-    
+
     def recursivePreorderTraversal(self, node):
         if node:
             print(node.value, end=" ")
@@ -59,15 +59,15 @@ class BinaryTree:
     def recursivePostorderTraversal(self, node):
         if not node:
             return
-        
+
         self.recursivePostorderTraversal(node.left)
         self.recursivePostorderTraversal(node.right)
         print(node.value, end=" ")
 
-                
+
 def main():
     bt = BinaryTree()
-    
+
     # intialize binary tree
     root = Node(10)
     one = Node(5, Node(1), Node(7))
@@ -76,7 +76,7 @@ def main():
     root.right = two
 
     bt.root = root
- 
+
     # traverse and search tree
     print("inorder:")
     bt.recursiveInorderTraversal(bt.root)
@@ -87,6 +87,6 @@ def main():
     print("\npostorder:")
     bt.recursivePostorderTraversal(bt.root)
     print()
-    
-  
+
+
 main()

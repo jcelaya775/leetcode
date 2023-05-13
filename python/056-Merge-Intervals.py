@@ -2,6 +2,7 @@ from typing import List
 
 # https://leetcode.com/problems/merge-intervals/https://leetcode.com/problems/merge-intervals/
 
+
 class Solution:
     def mergeIntervals(self, intervals: List[List[int]]) -> List[List[int]]:
         res = [intervals[0]]
