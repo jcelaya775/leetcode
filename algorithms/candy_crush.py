@@ -3,7 +3,7 @@ class Node:
         self.val = val
         self.prev = prev
         self.next = next
-        
+
 
 def makeLinkedList(arr):
     if not arr:
@@ -22,8 +22,8 @@ def makeLinkedList(arr):
 
     curr.next = None
     return head
-    
-        
+
+
 # Crush candy if 2 or more consecutive candies
 def crushCandy(candy, k):
     dummy = Node(0, None, candy)
@@ -33,17 +33,17 @@ def crushCandy(candy, k):
         left, right = candy, candy
         count = 1
 
-        while left.prev.val == left.val: # explore left
+        while left.prev.val == left.val:  # explore left
             left = left.prev
             count += 1
-        while right.next and right.val  == right.next.val: # explore right
+        while right.next and right.val == right.next.val:  # explore right
             right = right.next
             count += 1
-        if count >= k: # perform crush
+        if count >= k:  # perform crush
             left.prev.next = right.next
             if right.next:
                 right.next.prev = left.prev
-                
+
         candy = right.next
 
     return dummy.next
@@ -51,15 +51,15 @@ def crushCandy(candy, k):
 
 def printCandyForwards(candy):
     while candy:
-        print(candy.val, end = " -> ")
+        print(candy.val, end=" -> ")
         candy = candy.next
     print("None")
-        
+
 
 def main():
     # Create a linked list (candy)
     candy = makeLinkedList("BBBAAAAA")
-    
+
     # Play candy crush
     newCandy = crushCandy(candy, 4)
     printCandyForwards(newCandy)
