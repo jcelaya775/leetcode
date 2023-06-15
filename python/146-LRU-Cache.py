@@ -2,6 +2,7 @@ from typing import List
 
 # https://leetcode.com/problems/lru-cache/
 
+
 class Solution:
     class Node:
         def __init__(self, val, left=None, right=None):
@@ -14,7 +15,7 @@ class Solution:
         self.left = left
         self.right = right
         self.left.next, self.right.prev = self.right, self.left
-    
+
     # Removes LRU node from list
     def remove(self):
         prev, next = self.left, self.left.next
@@ -25,14 +26,14 @@ class Solution:
         node = self.Node(value)
         prev, next = self.right.prev, self.right
         prev.next, next.prev = node, node
-        
+
     # Gets the MRU node
     # O(1) Time & Space
     def get(self, key):
         if not self.right.prev.prev:
             return -1
         return self.cache[key]
-    
+
     # Put Node(key, value) into MRU
     # O(1) Time & Space
     def put(self, key, value):

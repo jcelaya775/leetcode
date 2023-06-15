@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/count-good-nodes-in-binary-tree/
 
+
 class Solution:
     class TreeNode:
         def __init__(self, val, left=None, right=None):
@@ -14,7 +15,7 @@ class Solution:
 
             res = 1 if node.val >= maxVal else 0
             maxVal = max(node.val, maxVal)
-            res += dfs(node.left, maxVal)        
+            res += dfs(node.left, maxVal)
             res += dfs(node.right, maxVal)
             return res
 

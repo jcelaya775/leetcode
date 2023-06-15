@@ -2,10 +2,12 @@ from typing import Optional, ListNode
 
 # https://leetcode.com/problems/count-the-number-of-consistent-strings/
 
+
 class ListNode:
     def __init__(self, val=None, next=None):
         self.val = val
         self.next = next
+
 
 class Solution:
     # O(n) Time | O(1) Space
@@ -15,17 +17,17 @@ class Solution:
         while end and count <= n:
             end = end.next
             count += 1
-            
+
         nodeToRemove = head
         while end and end.next:
             nodeToRemove = nodeToRemove.next
             end = end.next
-            
+
         if nodeToRemove:
             removeNode(nodeToRemove)
         return head
 
-            
+
 def removeNode(node):
     if node and node.next:
         node.next = node.next.next
