@@ -10,12 +10,14 @@ class Solution:
             if token == "+":
                 stack.append(stack.pop() + stack.pop())
             elif token == "-":
-                b, a = stack.pop(), stack.pop()
+                b = stack.pop()
+                a = stack.pop()
                 stack.append(a - b)
             elif token == "*":
                 stack.append(stack.pop() * stack.pop())
             elif token == "/":
-                b, a = stack.pop(), stack.pop()
+                b = stack.pop()
+                a = stack.pop()
                 stack.append(int(a / b))
             else:
                 stack.append(int(token))

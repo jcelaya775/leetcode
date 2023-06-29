@@ -5,9 +5,9 @@ from typing import List
 
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        # only add open if open > 0
-        # only add close if close > open
-        # valid iff open == closed == 0
+        # Only add open if open > 0
+        # Only add close if close > open
+        # Valid iff open == closed == 0
 
         stack = []
         res = []
